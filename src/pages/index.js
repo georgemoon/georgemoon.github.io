@@ -10,7 +10,7 @@ const IndexPage = () => (
     <header className="py-5">
       <div className="container">
         <img src={ me } alt="Graphic of George Moon" className="me" />
-        <h1>George Moon</h1>
+        <h1 className="font-styled my-2">George Moon</h1>
         <p className="mb-0">
           <a href="https://georgemoon.nz">Blog</a>
         </p>
@@ -18,7 +18,7 @@ const IndexPage = () => (
     </header>
     <main className="py-5">
       <div className="container">
-        <h2 className="text-center font-base h4 mb-4">Current projects</h2>
+        <h2 className="text-center h4 mb-4">Current projects</h2>
         <GitHub />
       </div>
     </main>

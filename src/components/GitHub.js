@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import 'whatwg-fetch';
+import { connect } from 'react-refetch';
+
+const Loader = () => <div className="Loader"></div>;
+const Error = () => <div className="Error">Error</div>;
 
 const Repository = ({ repository }) => {
   return (
@@ -24,43 +27,32 @@ const Repository = ({ repository }) => {
   );
 }
 
-class GitHub extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      repositories: []
-    };
-  }
-
-  getRepositories() {
-    fetch(`https://api.github.com/users/georgemoon/repos`)
-    .then(response => {
-      response.json()
-      .then(data => {
-        this.setState({ repositories: data });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    });
-  }
-
-  componentDidMount() {
-    this.getRepositories();
-  }
-
-  render() {
-    return(
-      <div className="GitHub">
-        <div className="row">
-          {this.state.repositories.map(repository =>
-            <Repository key={ repository.id } repository={ repository } />
-          )}
-        </div>
+const Repositories = ({ repositories }) => {
+  return (
+    <div className="Repositories">
+      <div className="row">
+        { repositories.map(repository =>
+          <Repository key={ repository.id } repository={ repository } />
+        ) }
       </div>
-    );
+    </div>
+  );
+}
+
+class GitHub extends Component {
+  render() {
+    const { gitHubFetch } = this.props;
+
+    if (gitHubFetch.pending) return <Loader />;
+    else if (gitHubFetch.rejected) return <Error error={ gitHubFetch.reason } />;
+    else if (gitHubFetch.fulfilled) return <Repositories repositories={gitHubFetch.value} />;
+    return null;
   }
 }
 
-export default GitHub;
+export default connect(props => ({
+  gitHubFetch: {
+    url: `https://api.github.com/users/georgemoon/repos`
+  }
+
+}))(GitHub);
