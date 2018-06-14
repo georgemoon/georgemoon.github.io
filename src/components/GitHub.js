@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'isomorphic-fetch';
 import { connect } from 'react-refetch';
 
 const Loader = () => <div className="Loader"></div>;
@@ -54,5 +55,4 @@ export default connect(props => ({
   gitHubFetch: {
     url: `https://api.github.com/users/georgemoon/repos`
   }
-
 }))(GitHub);

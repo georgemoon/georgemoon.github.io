@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "georgemoon",
+  "description": "georgemoon.io website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "George Moon",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "gatsby": "^1.9.247",
@@ -11,13 +11,11 @@
     "react-helmet": "^5.2.0",
     "react-refetch": "^1.0.4"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/ --watch --recursive",
+    "predeploy": "gatsby build",
+    "deploy": "gh-pages -d public --branch master",
     "prebuild": "npm run build-css",
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -25,11 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gh-pages": "^1.2.0",
     "node-sass-chokidar": "^1.3.0",
     "prettier": "^1.12.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
