@@ -9,7 +9,7 @@ module.exports = {
       options: {
         fonts: [
         `Lato`,
-        `Roboto+Slab\:700`
+        `Roboto+Slab`
         ]
       }
     }
