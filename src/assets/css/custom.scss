@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+header {
+  text-align: center;
+  background-color: $white;
+  .me {
+    height: 128px;
+  }
+}
+
+.font-base {
+  font-family: $font-family-base;
+}

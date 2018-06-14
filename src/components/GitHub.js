@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 
+const Repository = ({ repository }) => {
+  return (
+    <div className="Repository col-sm-6 col-md-4 mb-4">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-title">
+            <a href={ repository.html_url }><h3 className="h4">{ repository.name }</h3></a>
+          </div>
+          { repository.description }
+        </div>
+        <div className="card-body">
+          { repository.html_url &&
+            <a href={ repository.html_url } className="card-link">Repository</a>
+          }
+          { repository.homepage &&
+            <a href={ repository.homepage } className="card-link">View</a>
+          }
+        </div>
+      </div>
+    </div>
+  );
+}
+
 class GitHub extends Component {
   constructor(props) {
     super(props);
@@ -29,15 +52,13 @@ class GitHub extends Component {
 
   render() {
     return(
-      <ul className="GitHub">
-        {this.state.repositories.map(repository =>
-          <li key={ repository.id }>
-            <strong><a href={ repository.html_url }>{ repository.name }</a></strong>
-            &nbsp;&ndash;&nbsp;
-            { repository.description }
-          </li>
-        )}
-      </ul>
+      <div className="GitHub">
+        <div className="row">
+          {this.state.repositories.map(repository =>
+            <Repository key={ repository.id } repository={ repository } />
+          )}
+        </div>
+      </div>
     );
   }
 }

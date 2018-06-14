@@ -3,15 +3,26 @@ import Link from 'gatsby-link';
 
 import GitHub from '../components/GitHub';
 
-import me from '../assets/me.png';
+import me from '../assets/img/me.png';
 
 const IndexPage = () => (
-  <main>
-    <img src={ me } alt="Stylised graphic of George Moon"/>
-    <h1>George Moon</h1>
-    <h2>Current Projects</h2>
-    <GitHub />
-  </main>
+  <div className="IndexPage">
+    <header className="py-5">
+      <div className="container">
+        <img src={ me } alt="Graphic of George Moon" className="me" />
+        <h1>George Moon</h1>
+        <p className="mb-0">
+          <a href="https://georgemoon.nz">Blog</a>
+        </p>
+      </div>
+    </header>
+    <main className="py-5">
+      <div className="container">
+        <h2 className="text-center font-base h4 mb-4">Current projects</h2>
+        <GitHub />
+      </div>
+    </main>
+  </div>
 )
 
 export default IndexPage;
