@@ -12,7 +12,7 @@ const IndexPage = () => (
         <img src={ me } alt="Graphic of George Moon" className="me" />
         <h1 className="font-styled my-2">George Moon</h1>
         <p className="mb-0">
-          <a href="https://georgemoon.nz">Blog</a>
+          <a href="https://georgemoon.com">Blog</a>
         </p>
       </div>
     </header>
