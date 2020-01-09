@@ -70,6 +70,6 @@ class GitHub extends Component {
 
 export default connect(props => ({
   gitHubFetch: {
-    url: `https://api.github.com/search/repositories?q=user%3Ageorgemoon+user%3Agreenstone&sort=updated&order=desc`
+    url: `https://api.github.com/search/repositories?q=user%3Ageorgemoon+user%3Agreenstone+user%3Aelectricmagnetic&sort=updated&order=desc`
   }
 }))(GitHub);
